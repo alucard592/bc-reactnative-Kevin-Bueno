@@ -1,0 +1,87 @@
+import { useState, useMemo, useCallback } from 'react';
+import {
+  View, Text, TextInput, FlatList, StyleSheet,
+  KeyboardAvoidingView, Platform,
+} from 'react-native';
+import { donantes } from '../data/mockData';
+import { ItemCard } from '../components/ItemCard';
+import { Donante } from '../types';
+import { COLORS, TYPOGRAPHY, SPACING } from '../theme';
+
+export function HomeScreen() {
+  const [busqueda, setBusqueda] = useState('');
+
+  const donantesFiltrados = useMemo(() => {
+    const query = busqueda.trim().toLowerCase();
+    if (!query) return donantes;
+    return donantes.filter(
+      (d) =>
+        d.nombre.toLowerCase().includes(query) ||
+        d.tipoSangre.toLowerCase().includes(query)
+    );
+  }, [busqueda]);
+
+  const renderItem = useCallback(({ item }: { item: Donante }) => (
+    <ItemCard donante={item} />
+  ), []);
+
+  return (
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
+      <View style={styles.header}>
+        <Text style={styles.headerTitulo}>🩸 Banco de Sangre</Text>
+        <Text style={styles.headerSubtitulo}>Donantes</Text>
+      </View>
+
+      <TextInput
+        style={styles.input}
+        placeholder="Buscar por nombre o tipo de sangre..."
+        placeholderTextColor={COLORS.textSecondary}
+        value={busqueda}
+        onChangeText={setBusqueda}
+      />
+
+      <FlatList
+        data={donantesFiltrados}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        contentContainerStyle={styles.lista}
+        ItemSeparatorComponent={() => <View style={{ height: SPACING.md }} />}
+        ListEmptyComponent={
+          <Text style={styles.vacio}>No se encontraron donantes</Text>
+        }
+      />
+    </KeyboardAvoidingView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: COLORS.background },
+  header: {
+    backgroundColor: COLORS.primary,
+    paddingTop: 60,
+    paddingBottom: SPACING.lg,
+    paddingHorizontal: SPACING.lg,
+  },
+  headerTitulo: { ...TYPOGRAPHY.title, color: '#ffffff' },
+  headerSubtitulo: { ...TYPOGRAPHY.body, color: '#ffe0e0', marginTop: 2 },
+  input: {
+    margin: SPACING.lg,
+    marginBottom: SPACING.sm,
+    backgroundColor: COLORS.card,
+    borderRadius: 10,
+    paddingHorizontal: SPACING.md,
+    paddingVertical: SPACING.sm,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    color: COLORS.text,
+  },
+  lista: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.lg },
+  vacio: {
+    textAlign: 'center',
+    color: COLORS.textSecondary,
+    marginTop: SPACING.xl,
+  },
+});
