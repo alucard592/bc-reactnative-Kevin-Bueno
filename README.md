@@ -6,10 +6,8 @@ Este repositorio contiene la serie de proyectos y prácticas desarrolladas seman
 
 ## 📌 Estructura del Repositorio
 
-El repositorio se organiza de dos formas para facilitar tanto el aprendizaje global como la revisión individual por semanas:
-
-1. **Rama `main`**: Contiene el consolidado con la carpeta individual de cada semana (`semana-01-banco-de-sangre`, `semana-2-banco-de-sangre`, ..., `semana-9-banco-de-sangre`).
-2. **Ramas por Semana (`semana-1` a `semana-9`)**: Cada semana posee su propia rama independiente donde el código fuente (`App.tsx`, `package.json`, `src/`, `app.json`) está ubicado **directamente en la raíz**.
+- **Rama `main`**: Contiene la documentación del proyecto (`README.md`).
+- **Ramas por Semana (`semana-1` a `semana-9`)**: Cada entrega semanal posee su propia rama independiente donde el proyecto completo (`App.tsx`, `package.json`, `src/`, `app.json`) está ubicado **directamente en la raíz de la rama**.
 
 ---
 
@@ -25,9 +23,7 @@ Antes de ejecutar cualquiera de las semanas, asegúrate de contar con:
 
 ## 🚀 Guía de Ejecución
 
-Puedes ejecutar cualquiera de las semanas utilizando dos métodos:
-
-### Método 1: Desde la rama `main`
+Para ejecutar el proyecto de cualquier semana:
 
 1. Clona el repositorio si aún no lo has hecho:
    ```bash
@@ -35,10 +31,10 @@ Puedes ejecutar cualquiera de las semanas utilizando dos métodos:
    cd bc-reactnative-Kevin-Bueno
    ```
 
-2. Entra a la carpeta de la semana que deseas ejecutar:
+2. Cambia a la rama correspondiente a la semana que deseas probar (de `semana-1` a `semana-9`):
    ```bash
-   # Ejemplo para la Semana 8:
-   cd semana-8-banco-de-sangre
+   # Ejemplo para probar la Semana 9:
+   git checkout semana-9
    ```
 
 3. Instala las dependencias:
@@ -47,26 +43,6 @@ Puedes ejecutar cualquiera de las semanas utilizando dos métodos:
    ```
 
 4. Inicia el servidor de desarrollo de Expo:
-   ```bash
-   npx expo start
-   ```
-
----
-
-### Método 2: Cambiando a la rama específica de la semana
-
-1. Cambia a la rama correspondiente (de `semana-1` a `semana-9`):
-   ```bash
-   # Ejemplo para probar la Semana 9:
-   git checkout semana-9
-   ```
-
-2. Instala las dependencias necesarias:
-   ```bash
-   npm install
-   ```
-
-3. Inicia el proyecto con Expo:
    ```bash
    npx expo start
    ```
@@ -95,17 +71,17 @@ Las semanas 8 y 9 incluyen el módulo completo de autenticación y protección d
 
 ## 📚 Desglose de Contenido por Semana
 
-| Semana | Tema Principal | Descripción y Tecnologías |
+| Rama | Tema Principal | Descripción y Tecnologías |
 | :---: | :--- | :--- |
-| **Semana 1** | Introducción a React Native | Configuración del entorno Expo, componentes básicos (`View`, `Text`, `FlatList`) e interfaz inicial. |
-| **Semana 2** | Componentes y Estilos | Diseño modularizado de tarjetas (`ItemCard`), manejo de temas de color Banco de Sangre (`#d32f2f`) y TypeScript. |
-| **Semana 3** | Navegación | Configuración de `@react-navigation/native` con Stack y Bottom Tabs para navegar entre inicio, detalles y favoritos. |
-| **Semana 4** | Estado Global con Zustand | Implementación de `savedStore.ts` con Zustand para guardar y remover donantes en la lista de favoritos. |
-| **Semana 5** | Integración de API (CRUD) | Consumo de servicios RESTful, llamadas asíncronas con Axios y operaciones CRUD completas (Crear, Leer, Editar, Eliminar). |
-| **Semana 6** | Formularios y Validación | Formularios reactivos para registro de donantes utilizando validación de esquemas con Zod y React Hook Form. |
-| **Semana 7** | Persistencia Local | Almacenamiento persistente de datos del usuario y preferencias mediante `AsyncStorage`. |
-| **Semana 8** | Autenticación y Rutas Protegidas | Store de Auth (`authStore.ts`), pantallas de `Login` y `Register`, renderizado condicional de rutas y botón de cierre de sesión. |
-| **Semana 9** | Animaciones Avanzadas | Animaciones con la API `Animated` de React Native (entradas en cascada con `timing`, efectos táctiles con `spring` y rebote) + Auth. |
+| **`semana-1`** | Introducción a React Native | Configuración del entorno Expo, componentes básicos (`View`, `Text`, `FlatList`) e interfaz inicial. |
+| **`semana-2`** | Componentes y Estilos | Diseño modularizado de tarjetas (`ItemCard`), manejo de temas de color Banco de Sangre (`#d32f2f`) y TypeScript. |
+| **`semana-3`** | Navegación | Configuración de `@react-navigation/native` con Stack y Bottom Tabs para navegar entre inicio, detalles y favoritos. |
+| **`semana-4`** | Estado Global con Zustand | Implementación de `savedStore.ts` con Zustand para guardar y remover donantes en la lista de favoritos. |
+| **`semana-5`** | Integración de API (CRUD) | Consumo de servicios RESTful, llamadas asíncronas con Axios y operaciones CRUD completas (Crear, Leer, Editar, Eliminar). |
+| **`semana-6`** | Formularios y Validación | Formularios reactivos para registro de donantes utilizando validación de esquemas con Zod y React Hook Form. |
+| **`semana-7`** | Persistencia Local | Almacenamiento persistente de datos del usuario y preferencias mediante `AsyncStorage`. |
+| **`semana-8`** | Autenticación y Rutas Protegidas | Store de Auth (`authStore.ts`), pantallas de `Login` y `Register`, renderizado condicional de rutas y botón de cierre de sesión. |
+| **`semana-9`** | Animaciones Avanzadas | Animaciones con la API `Animated` de React Native (entradas en cascada con `timing`, efectos táctiles con `spring` y rebote) + Auth. |
 
 ---
 
